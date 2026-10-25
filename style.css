@@ -1,0 +1,430 @@
+:root {
+  --blue: #4DB6E6;
+  --dark: #1f2937;
+  --light: #f7fafc;
+}
+
+* { 
+  margin: 0; 
+  padding: 0; 
+  box-sizing: border-box; 
+}
+
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  transition: background 0.5s, color 0.5s;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ===== テーマ ===== */
+.theme-sunny {
+  background: linear-gradient(to bottom, #ffffff, #e3f4fc);
+  color: #222;
+}
+
+.theme-rainy {
+  background: linear-gradient(to bottom, #e5e7eb, #cbd5e1);
+  color: #1f2937;
+}
+
+.theme-night {
+  background: linear-gradient(to bottom, #0f172a, #1e293b);
+  color: #f1f5f9;
+}
+
+.theme-night .section { 
+  background: rgba(255, 255, 255, 0.05); 
+}
+
+.theme-night .btn { 
+  background: var(--blue); 
+}
+
+.theme-night .day-card { 
+  background: rgba(255, 255, 255, 0.08); 
+}
+
+.theme-night .voice-card {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.theme-night .day-card h3 { 
+  color: #f1f5f9; 
+}
+
+.theme-night .campus-overlay {
+  background: rgba(15, 23, 42, 0.85);
+}
+
+/* ===== ヘッダー ===== */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  z-index: 100;
+  padding: 16px 0;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.theme-night .header {
+  background: rgba(15, 23, 42, 0.95);
+}
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.logo-n { 
+  color: var(--blue); 
+}
+
+.nav {
+  display: flex;
+  gap: 32px;
+}
+
+.nav a {
+  text-decoration: none;
+  color: inherit;
+  font-weight: 600;
+  transition: color 0.3s;
+}
+
+.nav a:hover { 
+  color: var(--blue); 
+}
+
+/* ===== ヒーローセクション ===== */
+.hero {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+}
+
+.hero-inner h2 {
+  font-size: clamp(32px, 5vw, 56px);
+  margin-bottom: 16px;
+  font-weight: 700;
+}
+
+.hero-inner p {
+  font-size: clamp(16px, 2vw, 20px);
+  opacity: 0.85;
+  margin-bottom: 32px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 14px 36px;
+  border-radius: 999px;
+  background: var(--blue);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(77, 182, 230, 0.4);
+}
+
+/* ===== キャンパス画像セクション ===== */
+.campus-section {
+  padding: 0 !important;
+  background: transparent !important;
+  margin-top: 0;
+}
+
+.campus-image-container {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  overflow: hidden;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+}
+
+.campus-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.campus-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 40px;
+  background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+  color: white;
+}
+
+.campus-overlay h2 {
+  font-size: clamp(24px, 4vw, 36px);
+  margin-bottom: 12px;
+  font-weight: 700;
+}
+
+.campus-overlay p {
+  font-size: clamp(14px, 2vw, 18px);
+  opacity: 0.95;
+}
+
+/* ===== セクション ===== */
+.section {
+  padding: 80px 0;
+  background: rgba(255, 255, 255, 0.7);
+  margin: 40px 0;
+  border-radius: 20px;
+}
+
+.section-title {
+  font-size: clamp(28px, 4vw, 40px);
+  text-align: center;
+  margin-bottom: 16px;
+  font-weight: 700;
+}
+
+.section-subtitle {
+  text-align: center;
+  opacity: 0.7;
+  margin-bottom: 60px;
+  font-size: 18px;
+}
+
+/* ===== 1日の流れ ===== */
+.day-timeline {
+  display: grid;
+  gap: 24px;
+}
+
+.day-card {
+  background: white;
+  padding: 32px;
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.day-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+}
+
+.day-time {
+  display: inline-block;
+  background: var(--blue);
+  color: white;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.day-card h3 {
+  font-size: 24px;
+  margin-bottom: 12px;
+  color: var(--dark);
+}
+
+.day-card p {
+  opacity: 0.8;
+  line-height: 1.8;
+}
+
+/* ===== キャンパスライフ ===== */
+.life-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 32px;
+}
+
+.life-item {
+  text-align: center;
+  padding: 32px;
+  background: rgba(77, 182, 230, 0.08);
+  border-radius: 16px;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.life-item:hover {
+  background: rgba(77, 182, 230, 0.15);
+  transform: translateY(-5px);
+}
+
+.life-icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+}
+
+.life-item h3 {
+  font-size: 22px;
+  margin-bottom: 12px;
+}
+
+/* ===== 学生の声 ===== */
+.voice-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 32px;
+}
+
+.voice-card {
+  background: white;
+  padding: 32px;
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  position: relative;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.voice-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+}
+
+.voice-card::before {
+  content: '"';
+  position: absolute;
+  top: 16px;
+  left: 24px;
+  font-size: 60px;
+  color: var(--blue);
+  opacity: 0.3;
+  font-family: Georgia, serif;
+}
+
+.voice-text {
+  margin-bottom: 20px;
+  line-height: 1.8;
+  padding-top: 20px;
+}
+
+.voice-author {
+  font-weight: 600;
+  color: var(--blue);
+}
+
+/* ===== フッター ===== */
+.footer {
+  text-align: center;
+  padding: 40px 0;
+  opacity: 0.7;
+}
+
+/* ===== レスポンシブ ===== */
+@media (max-width: 768px) {
+  .nav { 
+    gap: 16px; 
+    font-size: 14px; 
+  }
+  
+  .section { 
+    padding: 60px 0; 
+    margin: 20px 0; 
+  }
+  
+  .day-card { 
+    padding: 24px; 
+  }
+  
+  .campus-image-container {
+    height: 300px;
+  }
+  
+  .campus-overlay {
+    padding: 24px;
+  }
+}
+/* ===== テーマ ===== */
+
+/* 晴れ（昼） */
+.theme-sunny {
+  background: linear-gradient(#ffffff, #e3f4fc);
+  color: #222;
+}
+
+/* 雨 */
+.theme-rainy {
+  background: linear-gradient(#e5e7eb, #cbd5e1);
+  color: #1f2937;
+}
+
+/* 夜 */
+.theme-night {
+  background: linear-gradient(#0f172a, #1e293b);
+  color: #f1f5f9;
+}
+
+.theme-night .btn {
+  background: var(--blue);}
+  /* ===== 追加：壮大なアニメーション ===== */
+
+/* 1. 背景をゆっくり動かす（呼吸するような効果） */
+.theme-sunny, .theme-rainy, .theme-night {
+  background-size: 400% 400%; /* グラデーションのサイズを大きくする */
+  animation: gradientFlow 15s ease infinite; /* 15秒かけて動かす */
+}
+
+@keyframes gradientFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* 2. ヒーローセクションのタイトルをふわっと出す */
+.hero-inner h2 {
+  animation: fadeInUp 1.2s cubic-bezier(0.2, 1, 0.3, 1) forwards;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.hero-inner p {
+  animation: fadeInUp 1.2s cubic-bezier(0.2, 1, 0.3, 1) 0.3s forwards; /* 0.3秒遅らせる */
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.hero-inner .btn {
+  animation: fadeInUp 1.2s cubic-bezier(0.2, 1, 0.3, 1) 0.6s forwards; /* 0.6秒遅らせる */
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 3. 画像にホバーした時のズーム効果を強化 */
+.campus-image {
+  transition: transform 0.8s cubic-bezier(0.2, 1, 0.3, 1) !important;
+}
+.campus-image-container:hover .campus-image {
+  transform: scale(1.1);
+}
